@@ -1,0 +1,10 @@
+pluginManagement {
+    includeBuild 'gradle/plugins'
+}
+
+plugins {
+    id 'reproducer.enterprise'
+}
+
+rootProject.name = 'scan-plugin-reproducer'
+

@@ -1,0 +1,20 @@
+plugins {
+    id 'dev.gradleplugins.java-gradle-plugin'
+}
+
+repositories {
+    gradlePluginPortal()
+}
+
+gradlePlugin {
+    plugins {
+        enterprise {
+            id = 'reproducer.enterprise'
+            implementationClass = 'com.gradle.reproducer.GradleEnterprisePlugin'
+        }
+    }
+
+    dependencies {
+        implementation 'com.gradle:gradle-enterprise-gradle-plugin:3.8.1'
+    }
+}
