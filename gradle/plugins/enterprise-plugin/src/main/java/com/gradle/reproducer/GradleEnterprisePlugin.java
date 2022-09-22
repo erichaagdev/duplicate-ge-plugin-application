@@ -11,7 +11,8 @@ class GradleEnterprisePlugin implements Plugin<Settings> {
         settings.getPluginManager().apply("com.gradle.enterprise");
 
         GradleEnterpriseExtension extension = settings.getExtensions().getByType(GradleEnterpriseExtension.class);
-        extension.setServer("http://localhost:5086");
         extension.getBuildScan().publishAlways();
+        extension.getBuildScan().setTermsOfServiceUrl("https://gradle.com/terms-of-service");
+        extension.getBuildScan().setTermsOfServiceAgree("yes");
     }
 }
