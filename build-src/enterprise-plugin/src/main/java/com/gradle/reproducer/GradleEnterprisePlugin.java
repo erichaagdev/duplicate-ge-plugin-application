@@ -9,10 +9,5 @@ class GradleEnterprisePlugin implements Plugin<Settings> {
     @Override
     public void apply(Settings settings) {
         settings.getPluginManager().apply("com.gradle.enterprise");
-
-        GradleEnterpriseExtension extension = settings.getExtensions().getByType(GradleEnterpriseExtension.class);
-        extension.getBuildScan().publishAlways();
-        extension.getBuildScan().setTermsOfServiceUrl("https://gradle.com/terms-of-service");
-        extension.getBuildScan().setTermsOfServiceAgree("yes");
     }
 }

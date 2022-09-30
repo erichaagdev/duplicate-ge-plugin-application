@@ -3,8 +3,28 @@ pluginManagement {
 }
 
 plugins {
+    id 'com.gradle.common-custom-user-data-gradle-plugin' version '1.8.1'
     id 'reproducer.enterprise'
 }
 
-rootProject.name = 'scan-plugin-reproducer'
+gradleEnterprise {
+	server = 'https://ge.solutions-team.gradle.com'
+	buildScan {
+		publishAlways()
+	}
+}
 
+def buildscriptClasspath = buildscript.configurations.classpath.incoming.files
+
+def geJar = buildscriptClasspath.find { it.name.startsWith('gradle-enterprise-gradle-plugin') }
+println "\nGE jar"
+println "------------------------------"
+println geJar.name
+
+def cp = buildscriptClasspath.collect { it.name }.join("\n")
+gradleEnterprise.buildScan.value "settings.buildscript.classpath", cp
+println "\nsettings.buildscript.classpath"
+println "------------------------------"
+println cp
+
+rootProject.name = 'scan-plugin-reproducer'
