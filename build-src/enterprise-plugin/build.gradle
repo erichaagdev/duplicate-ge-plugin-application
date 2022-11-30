@@ -15,6 +15,6 @@ gradlePlugin {
     }
 
     dependencies {
-        implementation 'com.gradle:gradle-enterprise-gradle-plugin:3.8.1'
+        implementation 'com.gradle:gradle-enterprise-gradle-plugin:3.11.4'
     }
 }
